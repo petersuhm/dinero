@@ -1,4 +1,5 @@
 {
+    "name": "petersuhm/dinero",
     "require": {
         "guzzlehttp/guzzle": "^6.2"
     },
