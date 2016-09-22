@@ -1,10 +1,14 @@
 {
     "require": {
-        "guzzlehttp/guzzle": "^6.2",
-        "vlucas/phpdotenv": "^2.4"
+        "guzzlehttp/guzzle": "^6.2"
     },
     "require-dev": {
-        "phpspec/phpspec": "^3.1",
-        "phpunit/phpunit": "^5.5"
+        "phpunit/phpunit": "^5.5",
+        "mockery/mockery": "^0.9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dinero\\": "src/"
+        }
     }
 }
