@@ -7,6 +7,11 @@ class LedgerItem
     /**
      * @var
      */
+    private $voucherNumber;
+
+    /**
+     * @var
+     */
     private $accountNumber;
 
     /**
@@ -45,6 +50,7 @@ class LedgerItem
     }
 
     /**
+     * @param $voucherNumber
      * @param $accountNumber
      * @param $accountVatCode
      * @param $amount
@@ -54,10 +60,11 @@ class LedgerItem
      * @param $voucherDate
      * @return LedgerItem
      */
-    public static function from($accountNumber, $accountVatCode, $amount, $balancingAccountNumber, $balancingAccountVatCode, $description, $voucherDate)
+    public static function from($voucherNumber, $accountNumber, $accountVatCode, $amount, $balancingAccountNumber, $balancingAccountVatCode, $description, $voucherDate)
     {
         $ledgerItem = new LedgerItem();
 
+        $ledgerItem->voucherNumber = $voucherNumber;
         $ledgerItem->accountNumber = $accountNumber;
         $ledgerItem->accountVatCode = $accountVatCode;
         $ledgerItem->amount = $amount;
@@ -69,6 +76,11 @@ class LedgerItem
         return $ledgerItem;
     }
 
+    public function voucherNumber()
+    {
+        return $this->voucherNumber;
+    }
+
     public function accountNumber()
     {
         return $this->accountNumber;
@@ -77,6 +89,11 @@ class LedgerItem
     public function accountVatCode()
     {
         return $this->accountVatCode;
+    }
+
+    public function amount()
+    {
+        return $this->amount;
     }
 
     public function balancingAccountNumber()

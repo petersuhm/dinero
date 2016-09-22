@@ -2,6 +2,8 @@
 
 namespace Dinero\Api;
 
+use Dinero\LedgerItem;
+
 class Ledger
 {
     /**
@@ -20,7 +22,22 @@ class Ledger
 
     public function addItems(array $ledgerItems)
     {
-        $response = $this->client->post('/ledgeritems', $ledgerItems);
+        $itemData = array_reduce($ledgerItems, function($itemData, LedgerItem $item) {
+            $itemData[] = [
+                'VoucherNumber' => $item->voucherNumber(),
+                'AccountNumber' => $item->accountNumber(),
+                'AccountVatCode' => $item->accountVatCode(),
+                'Amount' => $item->amount(),
+                'BalancingAccountNumber' => $item->balancingAccountNumber(),
+                'BalancingAccountVatCode' => $item->balancingAccountVatCode(),
+                'Description' => $item->description(),
+                'VoucherDate' => $item->voucherDate(),
+            ];
+
+            return $itemData;
+        }, $itemData = []);
+
+        $response = $this->client->post('/ledgeritems', $itemData);
 
         return $response->getStatusCode() === 201 ? true : false;
     }
