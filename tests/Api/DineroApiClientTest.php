@@ -2,7 +2,7 @@
 
 namespace tests\Api;
 
-use Dinero\DineroApiClient;
+use Dinero\Api\DineroApiClient;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\StreamInterface;

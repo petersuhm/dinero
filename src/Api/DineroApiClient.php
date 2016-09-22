@@ -1,6 +1,6 @@
 <?php
 
-namespace Dinero;
+namespace Dinero\Api;
 
 use GuzzleHttp\Client;
 use Psr\Http\Message\ResponseInterface;

@@ -1,0 +1,6 @@
+suites:
+    dinero:
+        namespace: Dinero
+        psr4_prefix: Dinero
+        src_path: src
+        spec_prefix: spec
